@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'class/QuoteClass.dart';
-import 'class/extracted_widget_class.dart';
 
 void main() => runApp(extractedWidgetApp());
 
@@ -13,13 +12,27 @@ class extractedWidgetApp extends StatefulWidget {
 
 class _extractedWidgetAppState extends State<extractedWidgetApp> {
   List<Quote> quotes = [
-    Quote(text: 'Adnan1', author: 'Eldest'),
+    Quote(text: 'Adnan', author: 'Eldest'),
     Quote(text: 'Farhan', author: 'Younger'),
     Quote(text: 'Umair', author: 'Youngest'),
   ];
 
   Widget cardTemplate(quote) {
-    return cardExtractedWidger(quote: quote);
+    return Card(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Text(
+            quote.text,
+            style: const TextStyle(color: Colors.redAccent, fontSize: 30.0),
+          ),
+          Text(
+            quote.author,
+            style: const TextStyle(color: Colors.green),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
